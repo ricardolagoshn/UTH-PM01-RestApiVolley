@@ -31,18 +31,14 @@ public class MainActivity extends AppCompatActivity {
         listview1 = findViewById(R.id.listview1);
         empleList = new ArrayList<>();
         arrayEmple = new ArrayList<String>();
-
         
         SendRequest();
-
-
-
     }
 
     private void SendRequest()
     {
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="http://192.168.0.8/WSCurso/listaempleados.php";
+        String url ="http://192.168.0.4/WSCurso/listaempleados.php";
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,

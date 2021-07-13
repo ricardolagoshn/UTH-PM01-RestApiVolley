@@ -41,7 +41,7 @@ public class CrearActivity extends AppCompatActivity {
 
     private void CrearEmpleado()
     {
-        url = "http://192.168.0.4/WSCurso/crear.php";
+        url = RestApiMethods.ApiPostUrl;
 
         HashMap<String, String> parametros = new HashMap<String, String>();
         parametros.put("nombre","Ernesto");

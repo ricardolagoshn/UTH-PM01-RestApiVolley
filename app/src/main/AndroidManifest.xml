@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RestApiVolleyTest"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CrearActivity"></activity>
+        <activity android:name=".ImageActivity"></activity>
+        <activity android:name=".CrearActivity" />
         <activity android:name=".ActionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

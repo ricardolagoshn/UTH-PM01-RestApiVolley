@@ -26,6 +26,11 @@ public class ActionActivity extends AppCompatActivity {
                 break;
             case R.id.btnCrear:
                 ViewCrearEmpleados();
+                break;
+
+            case R.id.btnUpload:
+                ViewSubirFoto();
+                break;
         }
     }
 
@@ -38,6 +43,12 @@ public class ActionActivity extends AppCompatActivity {
     private void ViewCrearEmpleados()
     {
         Intent intent = new Intent(getApplicationContext(), CrearActivity.class);
+        startActivity(intent);
+    }
+
+    private void ViewSubirFoto()
+    {
+        Intent intent = new Intent(getApplicationContext(), ImageActivity.class);
         startActivity(intent);
     }
 }

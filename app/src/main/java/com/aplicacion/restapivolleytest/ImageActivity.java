@@ -30,10 +30,11 @@ public class ImageActivity extends AppCompatActivity {
     ImageView imageView;
     Button btngaleria, btnUploadImage;
     Bitmap photo;
-    static final int RESULT_LOAD_IMG = 100;
+    static final int RESULT_GALLERY_IMG = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
 
@@ -60,7 +61,7 @@ public class ImageActivity extends AppCompatActivity {
     private void GaleriaImagenes()
     {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(photoPickerIntent, RESULT_LOAD_IMG);
+        startActivityForResult(photoPickerIntent, RESULT_GALLERY_IMG);
     }
 
     @Override
@@ -68,11 +69,14 @@ public class ImageActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         Uri imageUri;
-        if (resultCode == RESULT_OK && requestCode == 100){
+
+        if (resultCode == RESULT_OK && requestCode == RESULT_GALLERY_IMG)
+        {
             imageUri = data.getData();
             imageView.setImageURI(imageUri);
 
-            try {
+            try
+            {
                 photo = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
             }
             catch (Exception ex)
@@ -82,8 +86,6 @@ public class ImageActivity extends AppCompatActivity {
 
     private void SendImage()
     {
-
-
         String url = RestApiMethods.ApiImageUrl;
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
